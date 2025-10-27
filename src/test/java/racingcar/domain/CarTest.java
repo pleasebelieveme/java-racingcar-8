@@ -50,7 +50,7 @@ class CarTest {
 	}
 
 	@Test
-	@DisplayName("5: 전진과 지를 반복할 수 있다")
+	@DisplayName("5: 전진과 정지를 반복할 수 있다")
 	void test5() {
 		Car car = new Car("pobi");
 
