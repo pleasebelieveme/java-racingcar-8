@@ -23,6 +23,6 @@ class InputValidatorTest {
 	void 이름이_5자_초과면_예외_발생(String name) {
 		assertThatThrownBy(() -> InputValidator.validateCarName(name))
 			.isInstanceOf(IllegalArgumentException.class)
-			.hasMessageContaining("5자 이하");
+			.hasMessageContaining("자동차 이름은 5자 이하여야 합니다.");
 	}
 }
