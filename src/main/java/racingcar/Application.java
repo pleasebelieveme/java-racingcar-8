@@ -8,5 +8,8 @@ public class Application {
     public static void main(String[] args) {
 		List<String> names = InputView.readCarNames();
 		System.out.println("입력된 이름: " + names);
+
+		int rounds = InputView.readRounds();
+		System.out.println("입력된 횟수: " + rounds);
     }
 }
