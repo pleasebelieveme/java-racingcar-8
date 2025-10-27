@@ -17,6 +17,10 @@ public class RandomGenerator {
 	}
 
 	public static boolean shouldMove(int randomValue) {
+		// pickNumberInRange에서 검증해주기에 아래의 메서드는 불필요
+		if (randomValue < MIN_RANDOM_VALUE || randomValue > MAX_RANDOM_VALUE) {
+			throw new IllegalArgumentException("랜덤 값은 0~9 사이여야 합니다");
+		}
 		return randomValue >= MOVE_THRESHOLD;
 	}
 }
