@@ -44,4 +44,23 @@ class OutputViewTest {
 			"jun : "
 		);
 	}
+
+	@Test
+	@DisplayName("3: 단독 우승자 포맷")
+	void test3() {
+		List<String> winners = List.of("pobi");
+		String message = OutputView.formatWinners(winners);
+
+		assertThat(message).isEqualTo("최종 우승자 : pobi");
+	}
+
+	@Test
+	@DisplayName("4: 공동 우승자 포맷 (3명)")
+	void test4() {
+		List<String> winners = List.of("pobi", "woni", "jun");
+		String message = OutputView.formatWinners(winners);
+
+		assertThat(message).isEqualTo("최종 우승자 : pobi, woni, jun");
+	}
+
 }
