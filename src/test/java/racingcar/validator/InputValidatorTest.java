@@ -101,7 +101,7 @@ class InputValidatorTest {
 	void test11(String rounds) {
 		assertThatThrownBy(() -> InputValidator.validateRounds(rounds))
 			.isInstanceOf(IllegalArgumentException.class)
-			.hasMessageContaining("숫자");
+			.hasMessageContaining("이동 횟수는 숫자여야 합니다");
 	}
 
 }
