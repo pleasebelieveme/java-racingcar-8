@@ -71,4 +71,37 @@ class InputValidatorTest {
 		assertThatCode(() -> InputValidator.validateNoDuplicateNames(names))
 			.doesNotThrowAnyException();
 	}
+
+	@Test
+	@DisplayName("8: 양수 라운드는 정상")
+	void test8() {
+		assertThatCode(() -> InputValidator.validateRounds("5"))
+			.doesNotThrowAnyException();
+	}
+
+	@Test
+	@DisplayName("9: 라운드가 0이면 예외 발생")
+	void test9() {
+		assertThatThrownBy(() -> InputValidator.validateRounds("0"))
+			.isInstanceOf(IllegalArgumentException.class)
+			.hasMessageContaining("이동 횟수는 1이상이어야 합니다");
+	}
+
+	@Test
+	@DisplayName("10: 라운드가 음수면 예외 발생")
+	void test10() {
+		assertThatThrownBy(() -> InputValidator.validateRounds("-1"))
+			.isInstanceOf(IllegalArgumentException.class)
+			.hasMessageContaining("이동 횟수는 1이상이어야 합니다");
+	}
+
+	@ParameterizedTest
+	@ValueSource(strings = {"abc", "5회", "다섯", "1.5"})
+	@DisplayName("11: 숫자가 아니면 예외 발생")
+	void test11(String rounds) {
+		assertThatThrownBy(() -> InputValidator.validateRounds(rounds))
+			.isInstanceOf(IllegalArgumentException.class)
+			.hasMessageContaining("이동 횟수는 숫자여야 합니다");
+	}
+
 }
