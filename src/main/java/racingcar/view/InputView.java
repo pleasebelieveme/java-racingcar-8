@@ -15,16 +15,14 @@ public class InputView {
 		throw new AssertionError("유틸리티 클래스는 인스턴스화할 수 없습니다.");
 	}
 
-	public static List<String> readCarNames() {
+	public static String readCarNamesInput() {
 		System.out.println(CAR_NAMES_INPUT_MESSAGE);
-		String input = Console.readLine();
-		return parseCarNames(input);
+		return Console.readLine();
 	}
 
-	public static int readRounds() {
+	public static String readRoundsInput() {
 		System.out.println(ROUNDS_INPUT_MESSAGE);
-		String input = Console.readLine();
-		return parseRounds(input);
+		return Console.readLine();
 	}
 
 	public static List<String> parseCarNames(String input) {

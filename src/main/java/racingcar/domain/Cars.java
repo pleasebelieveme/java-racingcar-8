@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.util.RandomGenerator;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -17,6 +19,13 @@ public class Cars {
 	public void moveAll(List<Boolean> moveConditions) {
 		for (int i = 0; i < cars.size(); i++) {
 			cars.get(i).move(moveConditions.get(i));
+		}
+	}
+
+	public void moveAll() {
+		for (Car car : cars) {
+			boolean shouldMove = RandomGenerator.shouldMove();
+			car.move(shouldMove);
 		}
 	}
 
